@@ -1,0 +1,19 @@
+header {
+  .navigation {
+    margin-top: 2vw;
+    &__bar {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__link {
+      @include center-y;
+      column-gap: 4vw;
+    }
+    span {
+      @include center-x;
+      position: absolute;
+      font-size: 24px;
+      color: white;
+    }
+  }
+}

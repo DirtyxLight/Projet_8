@@ -1,0 +1,15 @@
+.navigation__banner {
+  &__main {
+    @include center-y;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__img {
+    width: 95vw;
+    object-fit: cover;
+    height: 120px;
+    border-radius: 10px;
+    filter: brightness(80%);
+    position: relative;
+  }
+}

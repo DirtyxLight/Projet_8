@@ -1,0 +1,23 @@
+$primary-color: #ff6060;
+
+body {
+  margin: 0;
+  font-weight: 500;
+  font-family: "Montserrat" sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  &:hover {
+    text-decoration: underline;
+  }
+}
