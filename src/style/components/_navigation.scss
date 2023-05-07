@@ -1,5 +1,6 @@
 header {
   .navigation {
+    margin: 20px;
     margin-top: 2vw;
     &__bar {
       display: flex;
@@ -10,8 +11,9 @@ header {
       column-gap: 4vw;
     }
     span {
-      @include center-x;
       position: absolute;
+      min-width: 200px;
+      width: 23vw;
       font-size: 24px;
       color: white;
     }

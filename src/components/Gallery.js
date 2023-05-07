@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Cards from "./Cards";
 
 const Gallery = () => {
-  return <div className="gallery"></div>;
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("./data_kasa.json")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
+
+  return (
+    <div className="gallery">
+      <ul className="gallery__rent">
+        {data.map((rent) => (
+          <Cards key={rent.id} rent={rent} />
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Gallery;

@@ -1,9 +1,10 @@
 $primary-color: #ff6060;
 
 body {
-  margin: 0;
+  margin: auto;
+  max-width: 1440px;
   font-weight: 500;
-  font-family: "Montserrat" sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,4 +21,8 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+p {
+  margin: 0;
 }

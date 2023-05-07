@@ -15,11 +15,7 @@ const Navigation = () => {
         </div>
         <div className="navigation__banner__main">
           <Banner />
-          <span>
-            Chez vous,
-            <br />
-            partout et ailleurs
-          </span>
+          <span>Chez vous, partout et ailleurs</span>
         </div>
       </nav>
     </header>

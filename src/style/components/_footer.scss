@@ -1,0 +1,11 @@
+.footer {
+  @include center-x;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  padding: 40px;
+
+  &__copyright {
+    color: white;
+  }
+}
