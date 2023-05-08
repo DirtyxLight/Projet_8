@@ -1,12 +1,12 @@
 $primary-color: #ff6060;
+$second-color: #f7f7f7;
+$back-color: black;
 
 body {
   margin: auto;
   max-width: 1440px;
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 ul {
@@ -25,4 +25,10 @@ a {
 
 p {
   margin: 0;
+}
+
+footer {
+  background-color: $back-color;
+  margin: auto;
+  max-width: 1400px;
 }

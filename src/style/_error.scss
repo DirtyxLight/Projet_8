@@ -1,0 +1,29 @@
+#error__page {
+  height: auto;
+}
+.error__message {
+  max-width: 1440px;
+  margin: auto;
+  @include center-y;
+  flex-direction: column;
+  row-gap: 3em;
+
+  &__title {
+    font-size: 25vw;
+    color: $primary-color;
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 20px;
+    width: 47vw;
+    margin-top: 0px;
+    color: $primary-color;
+  }
+  &__link {
+    margin-bottom: 2em;
+    text-decoration: underline;
+  }
+}
