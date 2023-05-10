@@ -4,8 +4,8 @@ import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
 const Home = () => {
   return (
-    <div>
-      <Navigation />
+    <div id="home__page">
+      <Navigation image="homeBanner" source="./assets/home-banner.png" />
       <Gallery />
       <Footer />
     </div>

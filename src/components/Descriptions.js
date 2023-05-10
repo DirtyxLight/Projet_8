@@ -1,13 +1,11 @@
 import React from "react";
 
-const Descriptions = () => {
+const Descriptions = ({ content }) => {
   return (
-    <div class="dropdown">
-      <span>Mouse over me</span>
-      <div class="dropdown-content">
-        <p>Hello World!</p>
-      </div>
-    </div>
+    <li className="dropdown__content">
+      <h4>{content.title}</h4>
+      <p>{content.content}</p>
+    </li>
   );
 };
 

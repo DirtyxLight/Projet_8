@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import Banner from "./Banner";
-const Navigation = () => {
+const Navigation = ({ source }) => {
   return (
     <header>
       <nav className="navigation">
@@ -14,7 +14,7 @@ const Navigation = () => {
           </ul>
         </div>
         <div className="navigation__banner__main">
-          <Banner />
+          <Banner source={source} />
           <span>Chez vous, partout et ailleurs</span>
         </div>
       </nav>

@@ -5,7 +5,10 @@
   padding: 40px;
 
   &__copyright {
-    color: black;
-    @include change-color-logo;
+    color: white;
+  }
+  .logo {
+    filter: invert(100%) sepia(27%) saturate(0%) hue-rotate(120deg)
+      brightness(200%) contrast(100%);
   }
 }
