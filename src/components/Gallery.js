@@ -5,7 +5,7 @@ const Gallery = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("./data_kasa.json")
+    fetch("./data-kasa.json")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

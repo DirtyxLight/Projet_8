@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Descriptions from "../components/Descriptions";
+import Dropdown from "../components/Dropdown";
 
 const About = () => {
   const aboutDrop = [
@@ -37,7 +38,13 @@ const About = () => {
       <div className="dropdown">
         <ul className="dropdown__list">
           {aboutDrop.map((content) => (
-            <Descriptions key={content.id} content={content} />
+            <Descriptions
+              location="aboutPage"
+              key={content.id}
+              content={content}
+            >
+              <Dropdown key={content.id} content={content} />
+            </Descriptions>
           ))}
         </ul>
       </div>
