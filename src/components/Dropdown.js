@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ content }) => {
+const Dropdown = ({ title, content }) => {
   const [contentDrop, setContentDrop] = useState(false);
 
   return (
-    <li className="dropdown__list__about">
+    <li className="dropdown__list__about" style={{ cursor: "pointer" }}>
       <h4
         onClick={() => setContentDrop(!contentDrop)}
         className="dropdown__list__about__title"
       >
         <div className="chevron">
-          <i class="fa-solid fa-chevron-down"></i>
+          <i className="fa-solid fa-chevron-down"></i>
         </div>
-        {/* Faire condition pour que ca switch de contenu car pas les meme noms dans Array donc choisir tel ou tel dropdown */}
-        {content.title}
+        {title}
       </h4>
       {contentDrop ? (
-        <p className="dropdown__list__about__content">{content.content}</p>
+        <p className="dropdown__list__about__content">{content}</p>
       ) : null}
     </li>
   );

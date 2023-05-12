@@ -5,16 +5,23 @@ const Gallery = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("./data-kasa.json")
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetch("./data-kasa.json", { signal })
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, []);
+
+    return () => {
+      controller.abort();
+    };
+  }, [setData]);
 
   return (
     <div className="gallery">
       <ul className="gallery__rent">
-        {data.map((rent) => (
-          <Cards key={rent.id} rent={rent} />
+        {data.map((content) => (
+          <Cards key={content.id} rent={content} />
         ))}
       </ul>
     </div>

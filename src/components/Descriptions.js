@@ -1,14 +1,14 @@
 import React from "react";
 import Dropdown from "./Dropdown";
 
-const Descriptions = ({ aboutPage, rentPage, content }) => {
+const Descriptions = ({ aboutPage, rentPage, content, title }) => {
   if ({ aboutPage }) {
-    return <Dropdown key={content.id} content={content} />;
+    return <Dropdown title={title} content={content} />;
   }
   if ({ rentPage }) {
     return (
       <li className="dropdown__list__accomodation">
-        <Dropdown key={content.id} content={content} />
+        <Dropdown title={title} content={content} />
       </li>
     );
   }
