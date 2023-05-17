@@ -1,6 +1,6 @@
 import React from "react";
 
-const Banner = ({ homeBanner, source, aboutBanner }) => {
+const Banner = ({ homeBanner, source, aboutBanner, emptyBanner }) => {
   if ({ homeBanner }) {
     return (
       <img
@@ -18,6 +18,9 @@ const Banner = ({ homeBanner, source, aboutBanner }) => {
         alt="Montagnes et forêts"
       />
     );
+  }
+  if ({ emptyBanner }) {
+    return <div className="navigation__banner__img"></div>;
   }
 };
 

@@ -1,46 +1,49 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import Dropdown from "../components/Dropdown";
 import Descriptions from "../components/Descriptions";
 
 const Rent = () => {
-  const [dataRent, setDataRent] = useState([]);
+  const idRent = useParams("id").id;
+  const [data, setData] = useState([]);
+  const currentRent = data.filter((id) => id.id === idRent);
 
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
-    fetch("./data-kasa.json", { signal })
-      .then((res) => res.json())
-      .then((data) => setDataRent(data));
+    async function getData() {
+      fetch("../data-kasa.json", { signal })
+        .then((res) => res.json())
+        .then((data) => setData(data));
+      return () => {
+        controller.abort();
+      };
+    }
+    getData();
+  }, [setData]);
 
-    return () => {
-      controller.abort();
-    };
-  }, [setDataRent]);
-  console.log(dataRent);
   return (
     <div id="rent__page">
-      <Navigation />
-      <div className="dropdown">
-        <ul className="dropdown__list">
-          {dataRent.map((content) => (
-            <Descriptions
-              location="rentPage"
-              key={content.id}
-              title={"Description"}
-              content={content.description}
-            ></Descriptions>
-          ))}
-          {dataRent.map((content) => (
-            <Descriptions
-              location="rentPage"
-              key={content.id}
-              title={"Équipements"}
-              content={content.equipments}
+      {currentRent.map((content) => (
+        <section>
+          <Navigation />
+          <h2>{content.title}</h2>
+          <span>{content.location}</span>
+          <Descriptions>
+            <Dropdown title="Description" content={content.description} />
+            <Dropdown
+              title="Équipements"
+              content={content.equipments.map((infos) => (
+                <ul>
+                  <li>{infos}</li>
+                </ul>
+              ))}
             />
-          ))}
-        </ul>
-      </div>
+          </Descriptions>
+        </section>
+      ))}
       <Footer />
     </div>
   );

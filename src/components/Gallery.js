@@ -8,20 +8,22 @@ const Gallery = () => {
     const controller = new AbortController();
     const signal = controller.signal;
 
-    fetch("./data-kasa.json", { signal })
-      .then((res) => res.json())
-      .then((data) => setData(data));
-
-    return () => {
-      controller.abort();
-    };
+    async function getData() {
+      fetch("./data-kasa.json", { signal })
+        .then((res) => res.json())
+        .then((data) => setData(data));
+      return () => {
+        controller.abort();
+      };
+    }
+    getData();
   }, [setData]);
-
+  console.log(data);
   return (
     <div className="gallery">
       <ul className="gallery__rent">
         {data.map((content) => (
-          <Cards key={content.id} rent={content} />
+          <Cards key={content.id} id={content.id} rent={content} />
         ))}
       </ul>
     </div>

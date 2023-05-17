@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Descriptions from "../components/Descriptions";
+import Dropdown from "../components/Dropdown";
+
 const About = () => {
   const [data, setData] = useState([]);
 
@@ -17,19 +19,19 @@ const About = () => {
       controller.abort();
     };
   }, [setData]);
-  console.log(data);
   return (
     <div id="about__page">
       <Navigation image="aboutBanner" source="./assets/about-banner.png" />
       <div className="dropdown">
         <ul className="dropdown__list">
           {data.map((content) => (
-            <Descriptions
-              location="aboutPage"
-              key={content.id}
-              title={content.title}
-              content={content.description}
-            ></Descriptions>
+            <Descriptions>
+              <Dropdown
+                key={content.id}
+                title={content.title}
+                content={content.description}
+              />
+            </Descriptions>
           ))}
         </ul>
       </div>
