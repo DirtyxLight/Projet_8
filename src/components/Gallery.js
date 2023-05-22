@@ -18,7 +18,7 @@ const Gallery = () => {
     }
     getData();
   }, [setData]);
-  console.log(data);
+
   return (
     <div className="gallery">
       <ul className="gallery__rent">

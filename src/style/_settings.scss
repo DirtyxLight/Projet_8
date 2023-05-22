@@ -36,3 +36,14 @@ footer {
   margin: auto;
   max-width: 1400px;
 }
+
+.star-rating {
+  color: #e3e3e3;
+}
+
+.star-rating--on {
+  color: $primary-color;
+}
+.star-rating--off {
+  color: #e3e3e3;
+}

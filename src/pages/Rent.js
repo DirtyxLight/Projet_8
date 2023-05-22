@@ -29,15 +29,46 @@ const Rent = () => {
       {currentRent.map((content) => (
         <section>
           <Navigation />
-          <h2>{content.title}</h2>
-          <span>{content.location}</span>
+          <h2 className="location__title">{content.title}</h2>
+          <span className="location__rent">{content.location}</span>
+          <div className="tags">
+            <ul className="tags__container">
+              {content.tags.map((tag, index) => (
+                <li key={index} className="tags__item">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="owner__container">
+            <span className="owner__name">{content.host.name}</span>
+            <img
+              src={content.host.picture}
+              alt={`the host: ${content.host.name}`}
+            />
+            {[...Array(5)].map((_, index) => {
+              const rate = index + 1;
+              console.log(rate);
+              return (
+                <i
+                  key={index}
+                  className={
+                    rate <= content.rating
+                      ? "fa-solid fa-star star-rating--on"
+                      : "fa-solid fa-star star-rating"
+                  }
+                ></i>
+              );
+            })}
+          </div>
+
           <Descriptions>
             <Dropdown title="Description" content={content.description} />
             <Dropdown
               title="Équipements"
-              content={content.equipments.map((infos) => (
+              content={content.equipments.map((infos, index) => (
                 <ul>
-                  <li>{infos}</li>
+                  <li key={index}>{infos}</li>
                 </ul>
               ))}
             />
