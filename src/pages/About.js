@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Descriptions from "../components/Descriptions";
 import Dropdown from "../components/Dropdown";
+import Banner from "../components/Banner";
 
 const About = () => {
   const [data, setData] = useState([]);
@@ -21,7 +22,9 @@ const About = () => {
   }, [setData]);
   return (
     <div id="about__page">
-      <Navigation image="aboutBanner" source="./assets/about-banner.png" />
+      <Navigation bannerDisplay={true} source="./assets/about-banner.png" />
+      <Banner source="./assets/about-banner.png" />
+
       <div className="dropdown">
         <ul className="dropdown__list">
           {data.map((content) => (
@@ -30,6 +33,7 @@ const About = () => {
                 key={content.id}
                 title={content.title}
                 content={content.description}
+                visibleByDefault={false}
               />
             </Descriptions>
           ))}

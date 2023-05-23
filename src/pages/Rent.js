@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Dropdown from "../components/Dropdown";
 import Descriptions from "../components/Descriptions";
+import Caroussel from "../components/Caroussel";
 
 const Rent = () => {
   const idRent = useParams("id").id;
@@ -26,15 +27,16 @@ const Rent = () => {
 
   return (
     <div id="rent__page">
-      {currentRent.map((content) => (
+      {currentRent.map((content, indexRent) => (
         <section>
-          <Navigation />
+          <Navigation bannerDisplay={true} />
+          <Caroussel key={indexRent} slides={content} />
           <h2 className="location__title">{content.title}</h2>
           <span className="location__rent">{content.location}</span>
           <div className="tags">
             <ul className="tags__container">
-              {content.tags.map((tag, index) => (
-                <li key={index} className="tags__item">
+              {content.tags.map((tag, indexTag) => (
+                <li key={indexTag} className="tags__item">
                   {tag}
                 </li>
               ))}
@@ -48,7 +50,6 @@ const Rent = () => {
             />
             {[...Array(5)].map((_, index) => {
               const rate = index + 1;
-              console.log(rate);
               return (
                 <i
                   key={index}
@@ -61,18 +62,22 @@ const Rent = () => {
               );
             })}
           </div>
-
-          <Descriptions>
-            <Dropdown title="Description" content={content.description} />
-            <Dropdown
-              title="Équipements"
-              content={content.equipments.map((infos, index) => (
-                <ul>
-                  <li key={index}>{infos}</li>
-                </ul>
-              ))}
-            />
-          </Descriptions>
+          <ul className="dropdown__rent">
+            <Descriptions>
+              <Dropdown
+                title="Description"
+                content={content.description}
+                visibleByDefault={true}
+              />
+              <Dropdown
+                title="Équipements"
+                visibleByDefault={true}
+                content={content.equipments.map((infos, index) => (
+                  <div key={index}>{infos}</div>
+                ))}
+              />
+            </Descriptions>
+          </ul>
         </section>
       ))}
       <Footer />
