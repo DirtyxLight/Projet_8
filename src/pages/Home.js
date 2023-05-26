@@ -7,9 +7,8 @@ import Banner from "../components/Banner";
 const Home = () => {
   return (
     <div id="home__page">
-      <Navigation bannerDisplay={false} source="./assets/home-banner.png" />
+      <Navigation />
       <Banner source="./assets/home-banner.png" />
-
       <Gallery />
       <Footer />
     </div>
